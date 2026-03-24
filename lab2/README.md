@@ -107,3 +107,57 @@ Response:
 }
 ```
 
+### User Service (:8082)
+
+**POST /users**
+Authorization: Bearer <token>
+
+Request:
+```json
+{
+  "login": "passenger2",
+  "full_name": "Петр Петров",
+  "phone": "+79991234567"
+}
+```
+
+Response:
+```json
+{
+  "id": 2,
+  "login": "passenger2"
+}
+```
+
+**GET /users**
+Authorization: Bearer <token>
+
+Response:
+```json
+[
+  {
+    "id": 1,
+    "login": "passenger1"
+  },
+  {
+    "id": 2,
+    "login": "passenger2"
+  }
+]
+```
+
+Поиск по логину: GET /users?login=passenger1
+Поиск по маске: GET /users?name=Иван
+
+**GET /users/{id}**
+Authorization: Bearer <token>
+
+Response:
+```json
+{
+  "id": 2,
+  "login": "passenger2",
+  "full_name": "Петр Петров",
+  "phone": "+79991234567"
+}
+```
