@@ -110,7 +110,10 @@ Response:
 ### User Service (:8082)
 
 **POST /users**
-Headers: `Authorization: Bearer <token>`
+Headers: 
+```
+Authorization: Bearer <token>
+```
 
 Request:
 ```json
@@ -130,7 +133,10 @@ Response:
 ```
 
 **GET /users**
-Headers: `Authorization: Bearer <token>`
+Headers: 
+```
+Authorization: Bearer <token>
+```
 
 Response:
 ```json
@@ -150,7 +156,10 @@ Response:
 Поиск по маске: `GET /users?name=Иван`
 
 **GET /users/{id}**
-Headers: `Authorization: Bearer <token>`
+Headers: 
+```
+Authorization: Bearer <token>
+```
 
 Response:
 ```json
@@ -165,7 +174,10 @@ Response:
 ### Driver Service (:8083)
 
 **POST /drivers**
-Headers: `Authorization: Bearer <token>`
+Headers: 
+```
+Authorization: Bearer <token>
+```
 
 Request:
 ```json
@@ -187,7 +199,10 @@ Response:
 ```
 
 **GET /drivers/available**
-Headers: `Authorization: Bearer <token>`
+Headers: 
+```
+Authorization: Bearer <token>
+```
 
 Request:
 ```
@@ -208,7 +223,10 @@ Response:
 ```
 
 **PATCH /drivers/{id}/location**
-Headers: `Authorization: Bearer <token>`
+Headers: 
+```
+Authorization: Bearer <token>
+```
 
 Request:
 ```json
@@ -227,7 +245,10 @@ Response:
 ```
 
 **PATCH /drivers/{id}/status**
-Headers: `Authorization: Bearer <token>`
+Headers: 
+```
+Authorization: Bearer <token>
+```
 
 Request:
 ```json
@@ -247,7 +268,10 @@ Response:
 ### Order Service (:8084)
 
 **POST /orders**
-Headers: `Authorization: Bearer <token>`
+Headers: 
+```
+Authorization: Bearer <token>
+```
 
 Request:
 ```json
@@ -273,7 +297,10 @@ Response:
 ```
 
 **GET /orders/{id}**
-Headers: `Authorization: Bearer <token>`
+Headers: 
+```
+Authorization: Bearer <token>
+```
 
 Response:
 ```json
@@ -287,7 +314,10 @@ Response:
 ```
 
 **GET /orders**
-Headers: `Authorization: Bearer <token>`
+Headers: 
+```
+Authorization: Bearer <token>
+```
 
 Request:
 ```
@@ -316,8 +346,10 @@ Response:
 Получение активных заказов: `GET /orders?status=active`
 
 **PATCH /orders/{id}/status**
-Headers:
-`Authorization: Bearer <token>`
+Headers: 
+```
+Authorization: Bearer <token>
+```
 
 Request (принятые заказы водителем):
 ```json
@@ -352,6 +384,10 @@ Response:
 ```
 
 **DELETE /orders/{id}**
-Headers: `Authorization: Bearer <token>`
+
+Headers: 
+```
+Authorization: Bearer <token>
+```
 
 Response: ```204 No Content```
