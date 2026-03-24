@@ -110,7 +110,7 @@ Response:
 ### User Service (:8082)
 
 **POST /users**
-Authorization: Bearer <token>
+`Authorization: Bearer <token>`
 
 Request:
 ```json
@@ -130,7 +130,7 @@ Response:
 ```
 
 **GET /users**
-Authorization: Bearer <token>
+`Authorization: Bearer <token>`
 
 Response:
 ```json
@@ -150,7 +150,7 @@ Response:
 Поиск по маске: `GET /users?name=Иван`
 
 **GET /users/{id}**
-Authorization: Bearer <token>
+`Authorization: Bearer <token>`
 
 Response:
 ```json
