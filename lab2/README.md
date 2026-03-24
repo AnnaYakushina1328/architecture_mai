@@ -402,3 +402,47 @@ Authorization: Bearer <token>
 ```
 
 Response: ```204 No Content```
+
+### Payment Service (:8085)
+
+**POST /payments**
+
+Headers: 
+```
+Authorization: Bearer <token>
+```
+
+Request:
+```json
+{
+  "order_id": 1,
+  "amount": 350.50,
+  "payment_method": "card"
+}
+```
+
+Response:
+```json
+{
+  "id": 1,
+  "order_id": 1,
+  "status": "succeeded"
+}
+```
+
+**GET /payments/{order_id}**
+
+Headers: 
+```
+Authorization: Bearer <token>
+```
+
+Response:
+```json
+{
+  "id": 1,
+  "order_id": 1,
+  "amount": 350.50,
+  "status": "succeeded"
+}
+```
