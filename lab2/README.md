@@ -65,3 +65,14 @@ Postman или unit-тесты)
 | **driver-service** | 8083 | Управление водителями, геопозиции, статусы |
 | **order-service** | 8084 | Создание и управление заказами, история поездок |
 | **payment-service** | 8085 | Обработка платежей, чеки |
+
+### Схема взаимодействия
+
+| От кого | Кому | Метод | Описание |
+|---------|------|-------|----------|
+| order-service | auth-service | GET /auth/verify | Проверка JWT токена |
+| order-service | user-service | GET /users/{id} | Получение данных пассажира |
+| order-service | driver-service | GET /drivers/available | Поиск доступных водителей |
+| order-service | payment-service | POST /payments | Инициация платежа |
+| driver-service | auth-service | GET /auth/verify | Проверка токена водителя |
+| payment-service | order-service | GET /orders/{id} | Получение данных заказа |
