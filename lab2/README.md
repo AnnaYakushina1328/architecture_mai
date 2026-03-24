@@ -146,8 +146,8 @@ Response:
 ]
 ```
 
-Поиск по логину: GET /users?login=passenger1
-Поиск по маске: GET /users?name=Иван
+Поиск по логину: 'GET /users?login=passenger1'
+Поиск по маске: 'GET /users?name=Иван'
 
 **GET /users/{id}**
 Authorization: Bearer <token>
