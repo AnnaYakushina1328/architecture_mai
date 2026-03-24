@@ -60,40 +60,30 @@ Postman или unit-тесты)
 
 | Сервис | Порт | Назначение |
 |--------|------|-----------|
-| **auth-service** | 8081 | Аутентификация, регистрация |
-| **user-service** | 8082 | Управление профилями пассажиров, поиск пользователей |
-| **driver-service** | 8083 | Управление водителями, геопозиции, статусы |
-| **order-service** | 8084 | Создание и управление заказами, история поездок |
-| **payment-service** | 8085 | Обработка платежей, чеки |
+| auth-service | 8081 | Аутентификация |
+| user-service | 8082 | Пользователи |
+| driver-service | 8083 | Водители |
+| order-service | 8084 | Заказы |
+| payment-service | 8085 | Платежи |
 
-### Схема взаимодействия
-
-| От кого | Кому | Метод | Описание |
-|---------|------|-------|----------|
-| order-service | auth-service | GET /auth/verify | Проверка JWT токена |
-| order-service | user-service | GET /users/{id} | Получение данных пассажира |
-| order-service | driver-service | GET /drivers/available | Поиск доступных водителей |
-| order-service | payment-service | POST /payments | Инициация платежа |
-| driver-service | auth-service | GET /auth/verify | Проверка токена водителя |
-| payment-service | order-service | GET /orders/{id} | Получение данных заказа |
 
 ## REST API Endpoints по сервисам
 
-### 1. Auth Service (`:8081`)
+### Auth Service (`:8081`)
 
-| Метод | URL | Описание | Статусы |
-|-------|-----|----------|---------|
-| `POST` | `/auth/register` | Регистрация пользователя | `201`, `400`, `409` |
-| `POST` | `/auth/login` | Вход и получение JWT | `200`, `401` |
-| `GET` | `/auth/verify` | Проверка JWT токена | `200`, `401` |
+**POST /auth/register**
 
-#### Пример: Регистрация
+Request:
+```json
+{
+  "login": "passenger1",
+  "password": "secret123",
+  "full_name": "Иван Иванов"
+}
 
-```bash
-curl -X POST http://localhost:8081/auth/register \
-  -H "Content-Type: application/json" \
-  -d '{
-    "login": "passenger1",
-    "password": "secret123",
-    "full_name": "Иван Иванов"
-  }'
+Response:
+```json
+{
+  "id": 1,
+  "login": "passenger1"
+}
