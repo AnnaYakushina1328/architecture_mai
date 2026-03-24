@@ -161,3 +161,85 @@ Response:
   "phone": "+79991234567"
 }
 ```
+
+### Driver Service (:8083)
+
+**POST /drivers**
+`Authorization: Bearer <token>`
+
+Request:
+```json
+{
+  "user_id": 2,
+  "car_model": "Toyota Camry",
+  "car_number": "А123БВ777",
+  "license_number": "77AB123456"
+}
+```
+
+Response:
+```json
+{
+  "id": 1,
+  "user_id": 2,
+  "status": "online"
+}
+```
+
+**GET /drivers/available**
+`Authorization: Bearer <token>`
+
+Request:
+```
+GET /drivers/available?lat=55.75&lng=37.61&radius=5
+```
+
+Response:
+```json
+[
+  {
+    "id": 1,
+    "user_id": 2,
+    "car_model": "Toyota Camry",
+    "rating": 4.5,
+    "distance": 1.2
+  }
+]
+```
+
+**PATCH /drivers/{id}/location**
+`Authorization: Bearer <token>`
+
+Request:
+```json
+{
+  "lat": 55.751244,
+  "lng": 37.618423
+}
+```
+
+Response:
+```json
+{
+  "id": 1,
+  "status": "ok"
+}
+```
+
+**PATCH /drivers/{id}/status**
+`Authorization: Bearer <token>`
+
+Request:
+```json
+{
+  "status": "online"
+}
+```
+
+Response:
+```json
+{
+  "id": 1,
+  "status": "online"
+}
+```
