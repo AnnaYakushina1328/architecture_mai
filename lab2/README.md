@@ -110,6 +110,7 @@ Response:
 ### User Service (:8082)
 
 **POST /users**
+
 Headers: 
 ```
 Authorization: Bearer <token>
@@ -133,6 +134,7 @@ Response:
 ```
 
 **GET /users**
+
 Headers: 
 ```
 Authorization: Bearer <token>
@@ -156,6 +158,7 @@ Response:
 Поиск по маске: `GET /users?name=Иван`
 
 **GET /users/{id}**
+
 Headers: 
 ```
 Authorization: Bearer <token>
@@ -174,6 +177,7 @@ Response:
 ### Driver Service (:8083)
 
 **POST /drivers**
+
 Headers: 
 ```
 Authorization: Bearer <token>
@@ -199,6 +203,7 @@ Response:
 ```
 
 **GET /drivers/available**
+
 Headers: 
 ```
 Authorization: Bearer <token>
@@ -223,6 +228,7 @@ Response:
 ```
 
 **PATCH /drivers/{id}/location**
+
 Headers: 
 ```
 Authorization: Bearer <token>
@@ -245,6 +251,7 @@ Response:
 ```
 
 **PATCH /drivers/{id}/status**
+
 Headers: 
 ```
 Authorization: Bearer <token>
@@ -268,6 +275,7 @@ Response:
 ### Order Service (:8084)
 
 **POST /orders**
+
 Headers: 
 ```
 Authorization: Bearer <token>
@@ -297,6 +305,7 @@ Response:
 ```
 
 **GET /orders/{id}**
+
 Headers: 
 ```
 Authorization: Bearer <token>
@@ -314,6 +323,7 @@ Response:
 ```
 
 **GET /orders**
+
 Headers: 
 ```
 Authorization: Bearer <token>
@@ -346,6 +356,7 @@ Response:
 Получение активных заказов: `GET /orders?status=active`
 
 **PATCH /orders/{id}/status**
+
 Headers: 
 ```
 Authorization: Bearer <token>
