@@ -110,7 +110,7 @@ Response:
 ### User Service (:8082)
 
 **POST /users**
-`Authorization: Bearer <token>`
+Headers: `Authorization: Bearer <token>`
 
 Request:
 ```json
@@ -130,7 +130,7 @@ Response:
 ```
 
 **GET /users**
-`Authorization: Bearer <token>`
+Headers: `Authorization: Bearer <token>`
 
 Response:
 ```json
@@ -150,7 +150,7 @@ Response:
 Поиск по маске: `GET /users?name=Иван`
 
 **GET /users/{id}**
-`Authorization: Bearer <token>`
+Headers: `Authorization: Bearer <token>`
 
 Response:
 ```json
@@ -165,7 +165,7 @@ Response:
 ### Driver Service (:8083)
 
 **POST /drivers**
-`Authorization: Bearer <token>`
+Headers: `Authorization: Bearer <token>`
 
 Request:
 ```json
@@ -187,7 +187,7 @@ Response:
 ```
 
 **GET /drivers/available**
-`Authorization: Bearer <token>`
+Headers: `Authorization: Bearer <token>`
 
 Request:
 ```
@@ -208,7 +208,7 @@ Response:
 ```
 
 **PATCH /drivers/{id}/location**
-`Authorization: Bearer <token>`
+Headers: `Authorization: Bearer <token>`
 
 Request:
 ```json
@@ -227,7 +227,7 @@ Response:
 ```
 
 **PATCH /drivers/{id}/status**
-`Authorization: Bearer <token>`
+Headers: `Authorization: Bearer <token>`
 
 Request:
 ```json
@@ -243,3 +243,115 @@ Response:
   "status": "online"
 }
 ```
+
+### Order Service (:8084)
+
+**POST /orders**
+Headers: `Authorization: Bearer <token>`
+
+Request:
+```json
+{
+  "passenger_id": 1,
+  "pickup": {
+    "lat": 55.751244,
+    "lng": 37.618423
+  },
+  "destination": {
+    "lat": 55.755826,
+    "lng": 37.617300
+  }
+}
+```
+
+Response:
+```json
+{
+  "id": 1,
+  "status": "searching"
+}
+```
+
+**GET /orders/{id}**
+Headers: `Authorization: Bearer <token>`
+
+Response:
+```json
+{
+  "id": 1,
+  "passenger_id": 1,
+  "driver_id": null,
+  "status": "searching",
+  "estimated_price": 350.50
+}
+```
+
+**GET /orders**
+Headers: `Authorization: Bearer <token>`
+
+Request:
+```
+GET /orders?passenger_id=1
+```
+
+Response:
+```json
+[
+  {
+    "id": 1,
+    "passenger_id": 1,
+    "driver_id": 1,
+    "status": "completed",
+    "estimated_price": 350.50
+  },
+  {
+    "id": 2,
+    "passenger_id": 1,
+    "driver_id": 2,
+    "status": "completed",
+    "estimated_price": 520.00
+  }
+]
+```
+Получение активных заказов: `GET /orders?status=active`
+
+**PATCH /orders/{id}/status**
+Headers:
+`Authorization: Bearer <token>`
+
+Request (принятые заказы водителем):
+```json
+{
+  "status": "accepted",
+  "driver_id": 1
+}
+```
+
+Response:
+```json
+{
+  "id": 1,
+  "status": "accepted",
+  "driver_id": 1
+}
+```
+
+Request (завершение поездки):
+```json
+{
+  "status": "completed"
+}
+```
+
+Response:
+```json
+{
+  "id": 1,
+  "status": "completed"
+}
+```
+
+**DELETE /orders/{id}**
+Headers: `Authorization: Bearer <token>`
+
+Response: ```204 No Content```
