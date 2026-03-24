@@ -76,3 +76,24 @@ Postman или unit-тесты)
 | order-service | payment-service | POST /payments | Инициация платежа |
 | driver-service | auth-service | GET /auth/verify | Проверка токена водителя |
 | payment-service | order-service | GET /orders/{id} | Получение данных заказа |
+
+## REST API Endpoints по сервисам
+
+### 1. Auth Service (`:8081`)
+
+| Метод | URL | Описание | Статусы |
+|-------|-----|----------|---------|
+| `POST` | `/auth/register` | Регистрация пользователя | `201`, `400`, `409` |
+| `POST` | `/auth/login` | Вход и получение JWT | `200`, `401` |
+| `GET` | `/auth/verify` | Проверка JWT токена | `200`, `401` |
+
+#### Пример: Регистрация
+
+```bash
+curl -X POST http://localhost:8081/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "login": "passenger1",
+    "password": "secret123",
+    "full_name": "Иван Иванов"
+  }'
