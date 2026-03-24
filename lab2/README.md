@@ -80,6 +80,7 @@ Request:
   "password": "secret123",
   "full_name": "Иван Иванов"
 }
+```
 
 Response:
 ```json
@@ -87,3 +88,22 @@ Response:
   "id": 1,
   "login": "passenger1"
 }
+```
+
+**POST /auth/login**
+
+Request:
+```json
+{
+  "login": "passenger1",
+  "password": "secret123"
+}
+```
+
+Response:
+```json
+{
+  "token": "123"
+}
+```
+
